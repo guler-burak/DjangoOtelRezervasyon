@@ -1,0 +1,532 @@
+﻿{% extends 'base.html' %}
+{% load static %}
+{% block title %}Tesisler - Otel, Tatil Köyü ve Konaklama{% endblock %}
+
+{% block content %}
+        <!-- ========================  Facility ======================== -->
+
+        <section class="page">
+
+            <!-- ===  Page header === -->
+
+            <div class="page-header" style="background-image:url(/static/src/images/header-1.jpg)">
+                <div class="container text-center">
+                    <h2 class="title">Restoran</h2>
+                    <p>Restoranlar & Oda Servisi</p>
+                </div>
+            </div>
+
+            <div class="facility">
+
+                <div class="container">
+                    <div class="facility-gallery">
+                        <div class="owl-slider owl-theme owl-slider-gallery">
+
+                            <!-- === slide item === -->
+
+                            <div class="item" style="background-image:url(/static/src/images/restaurant.jpg)">
+                                <img src="/static/src/images/restaurant.jpg" alt="" />
+                            </div>
+
+                            <!-- === slide item === -->
+
+                            <div class="item" style="background-image:url(/static/src/images/room.jpg)">
+                                <img src="/static/src/images/room.jpg" alt="" />
+                            </div>
+
+                        </div> <!--/owl-slider-->
+
+                    </div> <!--/facilty-gallery-->
+
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+
+                            <!-- === facility-info === -->
+
+                            <div class="facility-info">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h2>Restoranlar</h2>
+                                        <p>
+                                            Restoran, Colina Tatil Köyü'nün sembolik yemek mekanıdır. Kahvaltı, öğleden sonra çayı 
+                                            ve akşam servisi sunmanın yanı sıra son eklenen bir bar ve el yapımı kokteyl programı ile tamamlanır.
+                                        </p>
+                                        <!--<p>
+                                    Enjoy the world’s finest wines, champagnes, caviar and other indulgences while
+                                    overlooking Fifth Avenue and the famous Pulitzer Fountain.
+                                </p>-->
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h2>Oda Servisi</h2>
+                                        <p>
+                                            Odanızda veya süitinizde özel bir yemek, Plaza'da konaklamanın büyük zevklerinden biridir. Günün 24 saati kendi odanızın konforunda ünlü mutfağımızın tadını çıkarın.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- === facility-addons === -->
+
+                            <div class="facility-addons">
+
+                                <!-- === nav-tabs === -->
+
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li role="presentation" class="active">
+                                        <a href="#menus" aria-controls="menus" role="tab" data-toggle="tab">
+                                            <i class="hotelicon hotelicon-kitchen"></i>
+                                            <span class="visible-md visible-lg">Menüler</span>
+                                        </a>
+                                    </li>
+                                    <li role="presentation">
+                                        <a href="#chefs" aria-controls="chefs" role="tab" data-toggle="tab">
+                                            <i class="hotelicon hotelicon-guestbook"></i>
+                                            <span class="visible-md visible-lg">Şefler</span>
+                                        </a>
+                                    </li>
+                                    <li role="presentation">
+                                        <a href="#events" aria-controls="events" role="tab" data-toggle="tab">
+                                            <i class="hotelicon hotelicon-clock"></i>
+                                            <span class="visible-md visible-lg">Etkinlikler</span>
+                                        </a>
+                                    </li>
+                                </ul>
+
+                                <!-- === tab-panes === -->
+
+                                <div class="tab-content">
+
+                                    <!-- ============ tab #1 ============ -->
+
+                                    <div role="tabpanel" class="tab-pane active" id="menus">
+                                        <div class="content">
+
+                                            <div class="cards">
+
+                                                <div class="row">
+
+                                                    <!-- === item === -->
+
+                                                    <div class="col-xs-12 col-md-6">
+                                                        <figure>
+                                                            <figcaption style="background-image:url(/static/src/images/breakfast.jpg)">
+                                                                <img src="/static/src/images/breakfast.jpg" alt="" />
+                                                            </figcaption>
+                                                            <a href="#" class="btn btn-clean" onclick="">Kahvaltı</a>
+                                                        </figure>
+                                                    </div>
+
+                                                    <!-- === item === -->
+
+                                                    <div class="col-xs-6 col-md-6">
+                                                        <figure>
+                                                            <figcaption style="background-image:url(/static/src/images/lunch.jpg)">
+                                                                <img src="/static/src/images/lunch.jpg" alt="" />
+                                                            </figcaption>
+                                                            <a href="#" class="btn btn-clean">Öğle yemeği</a>
+                                                        </figure>
+                                                    </div>
+
+                                                    <!-- === item === -->
+
+                                                    <div class="col-xs-6 col-md-6">
+                                                        <figure>
+                                                            <figcaption style="background-image:url(/static/src/images/evening.jpg)">
+                                                                <img src="/static/src/images/evening.jpg" alt="" />
+                                                            </figcaption>
+                                                            <a href="#" class="btn btn-clean">Akşam yemeği</a>
+                                                        </figure>
+                                                    </div>
+
+                                                    <!-- === item === -->
+
+                                                    <div class="col-xs-6 col-md-6">
+                                                        <figure>
+                                                            <figcaption style="background-image:url(/static/src/images/food.jpg)">
+                                                                <img src="/static/src/images/food.jpg" alt="" />
+                                                            </figcaption>
+                                                            <a href="#" class="btn btn-clean">Odada</a>
+                                                        </figure>
+                                                    </div>
+
+                                                </div> <!--/row-->
+
+                                            </div> <!--/cards-->
+
+                                        </div>
+                                    </div>
+
+                                    <!-- ============ tab #2 ============ -->
+
+                                    <div role="tabpanel" class="tab-pane" id="chefs">
+                                        <div class="content">
+
+                                            <div class="image-blocks image-blocks-category">
+
+                                                <!--=== item block === -->
+
+                                                <div class="blocks blocks-left">
+                                                    <div class="item">
+                                                        <div class="text">
+                                                            <h2 class="title">John Mike Doe <small>Executive pastry chef</small></h2>
+                                                            <p>Gubergren eros stet est sit et et magna no praesent nam duo duo dolore dolore hendrerit takimata dolore duo gubergren stet sit commodo eleifend duo</p>
+                                                            <p>Vero sed quis euismod et erat dolore elitr elitr invidunt facilisis amet labore nonumy sea at labore erat et iriure et stet sit dolore justo consetetur id dolor sed diam</p>
+                                                            <p>Et no odio ipsum est eirmod lorem at accusam sit sea eros at sit justo sed suscipit doming sadipscing dolore aliquyam et no accusam dolores</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="image" style="background-image:url(/static/src/images/user-1.jpg)">
+                                                        <img src="/static/src/images/user-1.jpg" alt="" />
+                                                    </div>
+                                                </div>
+
+                                                <!--=== item block === -->
+
+                                                <div class="blocks blocks-right">
+                                                    <div class="item">
+                                                        <div class="text">
+                                                            <h2 class="title">John Mike Doe <small>Lead chef</small></h2>
+                                                            <p>Gubergren eros stet est sit et et magna no praesent nam duo duo dolore dolore hendrerit takimata dolore duo gubergren stet sit commodo eleifend duo</p>
+                                                            <p>Vero sed quis euismod et erat dolore elitr elitr invidunt facilisis amet labore nonumy sea at labore erat et iriure et stet sit dolore justo consetetur id dolor sed diam</p>
+                                                            <p>Et no odio ipsum est eirmod lorem at accusam sit sea eros at sit justo sed suscipit doming sadipscing dolore aliquyam et no accusam dolores</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="image" style="background-image:url(/static/src/images/user-2.jpg)">
+                                                        <img src="/static/src/images/user-2.jpg" alt="" />
+                                                    </div>
+                                                </div>
+
+                                            </div> <!--/image-blocks-->
+                                        </div> <!--/content-->
+                                    </div>
+
+                                    <!-- ============ tab #3 ============ -->
+
+                                    <div role="tabpanel" class="tab-pane" id="events">
+                                        <div class="content">
+
+                                            <div class="image-blocks image-blocks-category">
+
+                                                <!--=== item block === -->
+
+                                                <div class="blocks blocks-left">
+                                                    <div class="item">
+                                                        <div class="text">
+
+                                                            <!--=== events ===-->
+
+                                                            <div class="events">
+
+                                                                <!--=== event item ===-->
+
+                                                                <a href="#">
+                                                                    <div class="event">
+                                                                        <div class="date">
+                                                                            <div class="date-card">
+                                                                                <span>Sep</span>
+                                                                                <strong>28</strong>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="caption">
+                                                                            Newly renovated by Master Architect Thierry Despont
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+
+                                                                <!--=== event item ===-->
+
+                                                                <a href="#">
+                                                                    <div class="event">
+                                                                        <div class="date">
+                                                                            <div class="date-card">
+                                                                                <span>Sep</span>
+                                                                                <strong>22</strong>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="caption">
+                                                                            Ideal venue for cocktail style rehearsal dinners
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+
+                                                            </div> <!--/events-->
+
+                                                        </div> <!--/text-->
+                                                    </div> <!--/item-->
+                                                    <div class="image" style="background-image:url(/static/src/images/event-1.jpg)">
+                                                        <img src="/static/src/images/event-1.jpg" alt="" />
+                                                    </div>
+                                                </div> <!--/blocks-->
+                                                <!--=== item block === -->
+
+                                                <div class="blocks blocks-right">
+                                                    <div class="item">
+                                                        <div class="text">
+                                                            <div class="events">
+
+                                                                <!--=== event item ===-->
+
+                                                                <a href="#">
+                                                                    <div class="event">
+                                                                        <div class="date">
+                                                                            <div class="date-card">
+                                                                                <span>Sep</span>
+                                                                                <strong>28</strong>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="caption">
+                                                                            Newly renovated by Master Architect Thierry Despont
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+
+                                                                <!--=== event item ===-->
+
+                                                                <a href="#">
+                                                                    <div class="event">
+                                                                        <div class="date">
+                                                                            <div class="date-card">
+                                                                                <span>Sep</span>
+                                                                                <strong>22</strong>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="caption">
+                                                                            Ideal venue for cocktail style rehearsal dinners
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+
+                                                            </div> <!--/events-->
+                                                        </div>
+                                                    </div>
+                                                    <div class="image" style="background-image:url(/static/src/images/event-2.jpg)">
+                                                        <img src="/static/src/images/event-2.jpg" alt="" />
+                                                    </div>
+                                                </div>
+
+                                            </div> <!--/image-blocks-->
+
+                                        </div> <!--/content-->
+                                    </div>
+
+                                </div> <!--/tab-content-->
+
+                            </div> <!--/facility-addons-->
+                        </div> <!--/col-md-10-->
+                    </div> <!--/row-->
+
+                </div> <!--/container-->
+            </div>
+
+
+
+        </section>
+
+
+        <!-- ========================  Stretcher widget ======================== -->
+
+        <section class="stretcher-wrapper stretcher-wrapper-noheader">
+
+            <!-- === stretcher header === -->
+
+            <div class="section-header hidden">
+                <div class="container">
+                    <h2 class="title">Wellness & spa <a href="#" class="btn btn-sm btn-clean-dark">Explore more</a></h2>
+                    <p>
+                        With the best luxury spa, salon and fitness experiences
+                    </p>
+                </div>
+            </div>
+
+           <!-- === stretcher === -->
+
+           <ul class="stretcher">
+
+            <!-- === stretcher item === -->
+
+            <li class="stretcher-item" style="background-image:url(/static/src/images/spa.jpg);">
+                <!--logo-item-->
+                <div class="stretcher-logo">
+                    <div class="text">
+                        <span class="text-intro h4">Spa merkezi</span>
+                    </div>
+                </div>
+                <!--main text-->
+                <figure>
+                    <h4>Spa merkezi</h4>
+                    <figcaption>Lükse benzersiz bağlılık</figcaption>
+                </figure>
+                <!--anchor-->
+                <a href="facility.html">Anchor link</a>
+            </li>
+
+            <!-- === stretcher item === -->
+
+            <li class="stretcher-item" style="background-image:url(/static/src/images/gym.jpg);">
+                <!--logo-item-->
+                <div class="stretcher-logo">
+                    <div class="text">
+                        <span class="text-intro h4">Spor salonu</span>
+                    </div>
+                </div>
+                <!--main text-->
+                <figure>
+                    <h4>Spor salonu</h4>
+                    <figcaption>Sonuçlara önem verin</figcaption>
+                </figure>
+                <!--anchor-->
+                <a href="facility.html">Anchor link</a>
+            </li>
+
+            <!-- === stretcher item === -->
+
+            <li class="stretcher-item" style="background-image:url(/static/src/images/fitness.jpg);">
+                <!--logo-item-->
+                <div class="stretcher-logo">
+                    <div class="text">
+                        <span class="text-intro h4">Fitness</span>
+                    </div>
+                </div>
+                <figure>
+                    <h4>Fitness</h4>
+                    <figcaption>Günlük aktiviteleriniz</figcaption>
+                </figure>
+                <!--anchor-->
+                <a href="facility.html">Anchor link</a>
+            </li>
+
+            <!-- === stretcher item === -->
+
+            <li class="stretcher-item" style="background-image:url(/static/src/images/beauty-centre.jpg);">
+
+
+                <!--logo-item-->
+                <div class="stretcher-logo">
+                    <div class="text">
+                        <span class="text-intro h4">Güzellik Salonu</span>
+                    </div>
+                </div>
+                <!--main text-->
+                <figure>
+                    <h4>Güzellik Salonu</h4>
+                    <figcaption>Kuaför salonları ve spa'lar</figcaption>
+                </figure>
+                <!--anchor-->
+                <a href="facility.html">Anchor link</a>
+            </li>
+            <!-- === stretcher item more === -->
+
+            <li class="stretcher-item more">
+                <div class="more-icon">
+                    <span data-title-show="Show more" data-title-hide="+"></span>
+                </div>
+                <a href="facility.html">Anchor link</a>
+            </li>
+
+        </ul>
+    </section>
+
+        <!-- ========================  Cards ======================== -->
+
+        <section class="cards">
+
+            <!-- === cards header === -->
+
+            <div class="section-header">
+                <div class="container">
+                    <h2 class="title">Yakında<a href="#" class="btn btn-sm btn-clean-dark">Tümünü görüntüle</a></h2>
+                    <p>İşte sanat, moda ve tasarımla ilgili iyonik sitelerden bir seçki.</p>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row">
+
+                    <!-- === item === -->
+
+                    <div class="col-xs-12 col-md-8">
+                        <figure>
+                            <figcaption style="background-image:url(/static/src/images/museums.jpg)">
+                                <img src="/static/src/images/museums.jpg" alt="" />
+                            </figcaption>
+                            <a href="#" class="btn btn-clean" onclick="">Müzeler</a>
+                        </figure>
+                    </div>
+
+                    <!-- === item === -->
+
+                    <div class="col-xs-6 col-md-4">
+                        <figure>
+                            <figcaption style="background-image:url(/static/src/images/nightlife.jpg)">
+                                <img src="/static/src/images/nightlife.jpg" alt="" />
+                            </figcaption>
+                            <a href="#" class="btn btn-clean">Gece Hayatı</a>
+                        </figure>
+                    </div>
+
+                    <!-- === item === -->
+
+                    <div class="col-xs-6 col-md-4">
+                        <figure>
+                            <figcaption style="background-image:url(/static/src/images/fooddrink.jpg)">
+                                <img src="/static/src/images/fooddrink.jpg" alt="" />
+                            </figcaption>
+                            <a href="#" class="btn btn-clean">Yiyecek içecek</a>
+                        </figure>
+                    </div>
+
+                    <!-- === item === -->
+
+                    <div class="col-xs-6 col-md-4">
+                        <figure>
+                            <figcaption style="background-image:url(/static/src/images/shopping.jpg)">
+                                <img src="/static/src/images/shopping.jpg" alt="" />
+                            </figcaption>
+                            <a href="#" class="btn btn-clean">Alışveriş</a>
+                        </figure>
+                    </div>
+
+                    <!-- === item === -->
+
+                    <div class="col-xs-6 col-md-4">
+                        <figure>
+                            <figcaption style="background-image:url(/static/src/images/city.jpg)">
+                                <img src="/static/src/images/city.jpg" alt="" />
+                            </figcaption>
+                            <a href="#" class="btn btn-clean">Şehir</a>
+                        </figure>
+                    </div>
+
+                </div> <!--/row-->
+
+            </div> <!--/container-->
+        </section>
+
+        <!-- ========================  Subscribe ======================== -->
+
+        <section class="subscribe">
+            <div class="container">
+                <div class="box">
+                    <h2 class="title">Abone ol</h2>
+                    <div class="text">
+                        <p>& ücretsiz premium hediyeleri alın</p>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" value="" placeholder="Abone Ol" class="form-control" />
+                        <button class="btn btn-sm btn-main">Git</button>
+                    </div>
+                </div>
+            </div>
+        </section> 
+    </div> <!--/wrapper-->
+
+    <!--JS files-->
+    <script src="/static/src/js/jquery.min.js"></script>
+    <script src="/static/src/js/jquery-ui.js"></script>
+    <script src="/static/src/js/jquery.bootstrap.js"></script>
+    <script src="/static/src/js/jquery.magnific-popup.js"></script>
+    <script src="/static/src/js/jquery.owl.carousel.js"></script>
+    <script src="/static/src/js/main.js"></script>
+</body>
+
+</html>
+{% endblock %}

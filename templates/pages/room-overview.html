@@ -1,0 +1,713 @@
+﻿{% extends 'base.html' %}
+{% load static %}
+{% block title %}Rezervasyon - Otel, Tatil Köyü ve Konaklama{% endblock %}
+
+{% block content %}
+             <!-- ========================  Room ======================== -->
+
+             <section class="page">
+
+                <!-- ===  Page header === -->
+    
+                <div class="page-header" style="background-image:url(assets/images/header-1.jpg)">
+                    <div class="container">
+                        <h2 class="title">{{ room.description }} Oda</h2>
+                        <p>Gecelik ₺{{ room.price }}'dan başlayan fiyatlarla</p>
+                    </div>
+                </div>
+    
+                <div class="room">
+    
+                    <!-- === Room gallery === -->
+            
+            <div class="room-gallery">
+                <div class="container">
+                    <div class="owl-slider owl-theme owl-slider-gallery">
+
+                        <!-- === slide item === -->
+
+                        <div class="item" style="background-image:url({{ room.image_detail_1.url }})">
+                            <img src="{{ room.image_detail_1.url }}" alt="{{ room.description }} Room 1" />
+                        </div>
+                        
+                        <div class="item" style="background-image:url({{ room.image_detail_2.url }})">
+                            <img src="{{ room.image_detail_2.url }}" alt="{{ room.description }} Room 2" />
+                        </div>
+                        
+                        <div class="item" style="background-image:url({{ room.image_detail_3.url }})">
+                            <img src="{{ room.image_detail_3.url }}" alt="{{ room.description }} Room 3" />
+                        </div>
+                        
+                </div> <!--/owl-slider-->
+    
+                        </div>
+                    </div> <!--/room-gallery-->
+                            <!-- === Booking === -->
+
+                <div class="booking booking-inner">
+
+                    <div class="container">
+
+                        <div class="booking-wrapper">
+                            <div class="row">
+
+                                <!--=== date arrival ===-->
+
+                                <style>
+                                    .black-text {
+                                        color: black;
+                                    }
+                                </style>
+                                
+                                <div class="col-xs-12 col-sm-4">
+                                    <form method="post" action="{% url 'reservation' room_slug=room.slug %}">
+                                        {% csrf_token %}
+                                        
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <div class="date black-text" data-text="Giriş">
+                                                    {{ form.checkin_date }}
+                                                    <div class="date-value"></div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-xs-6">
+                                                <div class="date black-text"  data-text="Çıkış">
+                                                    {{ form.checkout_date }}
+                                                    <div class="date-value"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="text-right">
+                                            <button type="submit" class="btn btn-clean">
+                                                Rezervasyon Yap
+                                                <small>En İyi Fiyat Garantisi</small>
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <!--=== guests ===-->
+
+                                <!-- <div class="col-xs-4 col-sm-2">
+
+                                    <div class="guests" data-text="Guests">
+                                        <div class="result">
+                                            <input class="qty-result" type="text" value="2" id="qty-result" readonly="readonly" />
+                                            <div class="qty-result-text date-value" id="qty-result-text"></div>
+                                        </div> -->
+                                        <!--=== guests list ===-->
+                                        <!-- <ul class="guest-list">
+
+                                            <li class="header">
+                                                Lütfen konuk sayısını seçin<span class="qty-apply"><i class="icon icon-cross"></i></span>
+                                            </li> -->
+
+                                            <!--=== adults ===-->
+
+                                            <!-- <li class="clearfix"> -->
+
+                                                <!--=== Adults value ===-->
+
+                                                <!-- <div>
+                                                    <input class="qty-amount" value="2" type="text" id="ticket-adult" data-value="2" readonly="readonly" />
+                                                </div>
+
+                                                <div>
+                                                    <span>Yetişkinler  <small>16+ yaş</small></span>
+                                                </div> -->
+
+                                                <!--=== Add/remove quantity buttons ===-->
+
+                                                <!-- <div>
+                                                    <input class="qty-btn qty-minus" value="-" type="button" data-field="ticket-adult" />
+                                                    <input class="qty-btn qty-plus" value="+" type="button" data-field="ticket-adult" />
+                                                </div>
+
+                                            </li> -->
+
+                                            <!--=== chilrens ===-->
+
+                                            <!-- <li class="clearfix"> -->
+
+                                                <!--=== Adults value ===-->
+
+                                                <!-- <div>
+                                                    <input class="qty-amount" value="0" type="text" id="ticket-children" data-value="0" readonly="readonly" />
+                                                </div> -->
+
+                                                <!--=== Label ===-->
+
+                                                <!-- <div>
+                                                    <span>Çocuklar <small>2-11 yaş</small></span>
+                                                </div> -->
+
+
+                                                <!--=== Add/remove quantity buttons ===-->
+
+                                                <!-- <div>
+                                                    <input class="qty-btn qty-minus" value="-" type="button" data-field="ticket-children" />
+                                                    <input class="qty-btn qty-plus" value="+" type="button" data-field="ticket-children" />
+                                                </div>
+
+                                            </li> -->
+
+                                            <!--=== Infants ===-->
+
+                                            <!-- <li class="clearfix"> -->
+
+                                                <!--=== Adults value ===-->
+
+                                                <!-- <div>
+                                                    <input class="qty-amount" value="0" type="text" id="ticket-infants" data-value="0" readonly="readonly" />
+                                                </div> -->
+
+                                                <!--=== Label ===-->
+
+                                                <!-- <div>
+                                                    <span>Bebekler <small>2 yaş altı</small></span>
+                                                </div> -->
+
+                                                <!--=== Add/remove quantity buttons ===-->
+
+                                                <!-- <div>
+                                                    <input class="qty-btn qty-minus" value="-" type="button" data-field="ticket-infants" />
+                                                    <input class="qty-btn qty-plus" value="+" type="button" data-field="ticket-infants" />
+                                                </div>
+                                            </li>
+                                            
+                                        </ul>
+                                    </div>
+                                </div> -->
+
+                                <!--=== button ===-->
+
+                                <!-- <div class="col-xs-12 col-sm-4">
+                                    <a href="{% url 'reservation' room_slug=room.slug %}" class="btn btn-clean">
+                                        Rezervasyon Yap
+                                        <small>En İyi Fiyat Garantisi</small>
+                                    </a>
+                                </div>                              -->
+                            </div> <!--/row-->
+                        </div><!--/booking-wrapper-->
+                    </div> <!--/container-->
+                </div> <!--/booking-->
+                <!-- ===  Room overview === -->
+
+                <div class="room-overview">
+
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+
+                                <!-- === Room aminities === -->
+
+                                <div class="room-block room-aminities">
+
+                                    <h2 class="title">Oda Olanakları</h2>
+
+                                    <div class="row">
+
+                                        <!--=== item ===-->
+
+                                        <div class="col-xs-6 col-sm-2">
+                                            <figure>
+                                                <figcaption>
+                                                    <span class="hotelicon hotelicon-air-condition"></span>
+                                                    <p>Klima</p>
+                                                </figcaption>
+                                            </figure>
+                                        </div>
+
+                                        <!--=== item ===-->
+
+                                        <div class="col-xs-6 col-sm-2">
+                                            <figure>
+                                                <figcaption>
+                                                    <span class="hotelicon hotelicon-king-bed"></span>
+                                                    <p>1 King Boyutlu Yatak</p>
+                                                </figcaption>
+                                            </figure>
+                                        </div>
+
+                                        <!--=== item ===-->
+
+                                        <div class="col-xs-6 col-sm-2">
+                                            <figure>
+                                                <figcaption>
+                                                    <span class="hotelicon hotelicon-guest"></span>
+                                                    <p>2 kişi</p>
+                                                </figcaption>
+                                            </figure>
+                                        </div>
+
+                                        <!--=== item ===-->
+
+                                        <div class="col-xs-6 col-sm-2">
+                                            <figure>
+                                                <figcaption>
+                                                    <span class="hotelicon hotelicon-wifi"></span>
+                                                    <p>İnternet</p>
+                                                </figcaption>
+                                            </figure>
+                                        </div>
+
+                                        <!--=== item ===-->
+
+                                        <div class="col-xs-6 col-sm-2">
+                                            <figure>
+                                                <figcaption>
+                                                    <span class="hotelicon hotelicon-washer"></span>
+                                                    <p>Çamaşır Makinesi</p>
+                                                </figcaption>
+                                            </figure>
+                                        </div>
+
+                                        <!--=== item ===-->
+
+                                        <div class="col-xs-6 col-sm-2">
+                                            <figure>
+                                                <figcaption>
+                                                    <span class="hotelicon hotelicon-roomservice"></span>
+                                                    <p>Oda Servisi</p>
+                                                </figcaption>
+                                            </figure>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!-- === Room block === -->
+
+                                <div class="room-block">
+                                    <h2 class="title">Oda İncelemesi</h2>
+                                <p>
+                                 Süperior Odalar, modaya ve el işçiliğine saygı göstermektedir. Odalar yaklaşık olarak 19m2 büyüklüğündedir ve Rue d'Alger ve Jardin des Tuileries manzarasına sahiptir.
+                                 Malzemelerin seçimi ve eşleştirilmesi size harika bir deneyim sunmak için özenle seçilmiştir. Süper yumuşak yatak üstü kaplama sadece şaşırtıcıdır!
+                                 Her oda farklıdır ancak renk paleti benzersiz ve ustalıkla eşleştirilmiş tonları kullanır.
+                                 Bir döküm pirinç ekran, banyoyu yatak odasından ayırır. Bu orijinal özellik, her odanın kendi sıcak ve huzurlu sığınakınız olmasına yardımcı olur.
+                                 Bornozlar, terlikler ve SOTHYS banyo malzemeleri size şımartmak için banyoda sunulmaktadır.
+                                </p>
+                                </div>
+
+                                <!-- === Room block === -->
+
+                                <div class="room-block">
+
+                                    <h2 class="title">Ev Kuralları</h2>
+
+                                    <!-- === box === -->
+
+                                    <div class="box">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <p><strong>Giriş</strong></p>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <p>14:00 - 22:00</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- === box === -->
+
+                                    <div class="box">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <p><strong>Çıkış</strong></p>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <p>14:00 - 22:00</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- === box === -->
+
+                                    <div class="box">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <p><strong>Bagaj Saklama</strong></p>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <p>14:00 - 22:00</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- === box === -->
+
+                                    <div class="box">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <p><strong>İptal/Ön Ödeme</strong></p>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <p>
+                                                    İptal ve ön ödeme politikaları oda tipine göre değişiklik gösterir. Lütfen konaklama tarihlerinizi girin ve gereken oda koşullarını kontrol edin.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- === box === -->
+
+                                    <div class="box">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <p><strong>Çocuklar ve ek yataklar</strong></p>
+                                            </div>
+                                            <div class="col-md-8">
+                                            <p>Tüm çocuklar kabul edilir.</p>
+                                            <p>6 yaşın altındaki bir çocuk mevcut yatakları kullanırken gecelik 50 EUR ücret alınır.</p>
+                                            <p>Odaya ek yatak eklenemez.</p>
+                                            <p>Ekstralar toplam ücrete otomatik olarak dahil edilmez ve konaklamanız sırasında ayrıca ödenmelidir.
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- === box === -->
+
+                                    <div class="box">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <p><strong>Evcil Hayvanlar</strong></p>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <p>Evcil hayvanlara izin verilmez.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- === box === -->
+
+                                    <div class="box">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <p><strong>Ek Bilgi</strong></p>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <p>Lütfen restoranın her Pazar günü kapalı olduğunu unutmayın.</p>
+                                                <p>Restoran ayrıca Noel (25-26 Aralık) sırasında da kapalı olacaktır.</p>
+                                                <p>Lütfen park alanlarının rezerve edilemeyeceğini veya garanti edilemeyeceğini unutmayın.</p>
+                                                <p>
+                                                    Grup rezervasyonları için, varış tarihinden itibaren 4 haftaya kadar olan süre içinde 5 veya daha fazla oda için iptal ücretsizdir, 
+                                                    2 ila 4 hafta içinde %50 ücretsizdir ve 2 hafta içinde tesis tam ücreti tahsil edecektir. Lütfen Ozo otelin her zaman şehir vergisi 
+                                                    uyguladığını ve iade edilmeyen oranla veya grup rezervasyonları için varışınızdan önce tahsil edildiğini unutmayın.
+                                                </p>
+                                                <p>
+                                                    Lütfen rezervasyon için kullanılan kredi kartının girişte bulunması gerektiğini unutmayın. 
+                                                    Bu kredi kartı mevcut değilse lütfen sahibinin yetkilendirmesiyle birlikte kredi kartının fotokopisini getirin.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div> <!--/col-sm-10-->
+                        </div> <!--/row-->
+                    </div> <!--/container-->
+                </div> <!--/room-overview-->
+            </div>
+
+        </section>
+
+        <!-- ========================  Blog ======================== -->
+
+        <section class="blog blog-widget">
+
+            <!-- === stretcher header === -->
+
+            <div class="section-header">
+                <div class="container">
+                    <h2 class="title">Son Haberler <a href="blog-category.html" class="btn btn-sm btn-clean-dark">Explore more</a></h2>
+                    <p>
+                        Etkinlikler, gidilecek yerler, tur bilgileri ve daha fazlası
+                    </p>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row">
+
+                    <!-- === article item === -->
+
+                    <div class="col-sm-4">
+                        <a href="blog-item.html">
+                            <article>
+                                <div class="image">
+                                    <img src="/static/src/images/news1.jpg" alt="" />
+                                </div>
+                                <div class="text">
+                                    <div class="time">
+                                        <span>22</span>
+                                        <span>05</span>
+                                        <span>2014</span>
+                                    </div>
+                                    <h2 class="h5 title">
+                                        Tatiller ters gittiğinde ne yapmalı
+                                    </h2>
+                                </div>
+                            </article>
+                        </a>
+                    </div>
+
+                    <!-- === article item === -->
+
+                    <div class="col-sm-4">
+                        <a href="blog-item.html">
+                            <article>
+                                <div class="image">
+                                    <img src="/static/src/images/vaccinations.jpg" alt="" />
+                                </div>
+                                <div class="text">
+                                    <div class="time">
+                                        <span>22</span>
+                                        <span>05</span>
+                                        <span>2014</span>
+                                    </div>
+                                    <h2 class="h5 title">
+                                        Aşılar hakkında bilmeniz gereken her şey
+                                    </h2>
+                                </div>
+                            </article>
+                        </a>
+                    </div>
+
+                    <!-- === article item === -->
+
+                    <div class="col-sm-4">
+                        <a href="blog-item.html">
+                            <article>
+                                <div class="image">
+                                    <img src="/static/src/images/airport.jpg" alt="" />
+                                </div>
+                                <div class="text">
+                                    <div class="time">
+                                        <span>22</span>
+                                        <span>05</span>
+                                        <span>2014</span>
+                                    </div>
+                                    <h2 class="h5 title">
+                                        Havaalanı otoparkında para tasarrufu yapmanın altı basit yolu
+                                    </h2>
+                                </div>
+                            </article>
+                        </a>
+                    </div>
+
+                </div> <!--/row-->
+            </div> <!--/container-->
+        </section>
+
+        <!-- ========================  Stretcher widget ======================== -->
+
+        <section class="stretcher-wrapper">
+
+            <!-- === stretcher header === -->
+
+            <div class="section-header">
+                <div class="container">
+                    <h2 class="title">Tatil Köyü Tesisleri <a href="facility.html" class="btn btn-sm btn-clean-dark">Daha Fazla Keşfet</a></h2>
+                <p>
+                    En iyi lüks spa, kuaför ve fitness deneyimleri ile
+                </p>
+
+                </div>
+            </div>
+
+            <!-- === stretcher === -->
+
+            <ul class="stretcher">
+
+                <!-- === stretcher item === -->
+
+                <li class="stretcher-item" style="background-image:url(/static/src/images/spa.jpg);">
+                    <!--logo-item-->
+                    <div class="stretcher-logo">
+                        <div class="text">
+                            <span class="text-intro h4">Spa merkezi</span>
+                        </div>
+                    </div>
+                    <!--main text-->
+                    <figure>
+                        <h4>Spa merkezi</h4>
+                        <figcaption>Lükse benzersiz bağlılık</figcaption>
+                    </figure>
+                    <!--anchor-->
+                    <a href="facility.html">Anchor link</a>
+                </li>
+
+                <!-- === stretcher item === -->
+
+                <li class="stretcher-item" style="background-image:url(/static/src/images/gym.jpg);">
+                    <!--logo-item-->
+                    <div class="stretcher-logo">
+                        <div class="text">
+                            <span class="text-intro h4">Spor salonu</span>
+                        </div>
+                    </div>
+                    <!--main text-->
+                    <figure>
+                        <h4>Spor salonu</h4>
+                        <figcaption>Sonuçlara önem verin</figcaption>
+                    </figure>
+                    <!--anchor-->
+                    <a href="facility.html">Anchor link</a>
+                </li>
+                <!-- === stretcher item === -->
+
+                <li class="stretcher-item" style="background-image:url(/static/src/images/fitness.jpg);">
+                    <!--logo-item-->
+                    <div class="stretcher-logo">
+                        <div class="text">
+                            <span class="text-intro h4">Fitness</span>
+                        </div>
+                    </div>
+                    <figure>
+                        <h4>Fitness</h4>
+                        <figcaption>Günlük aktiviteleriniz</figcaption>
+                    </figure>
+                    <!--anchor-->
+                    <a href="facility.html">Anchor link</a>
+                </li>
+
+                <!-- === stretcher item === -->
+
+                <li class="stretcher-item" style="background-image:url(/static/src/images/beauty-centre.jpg);">
+
+
+                    <!--logo-item-->
+                    <div class="stretcher-logo">
+                        <div class="text">
+                            <span class="text-intro h4">Güzellik Salonu</span>
+                        </div>
+                    </div>
+                    <!--main text-->
+                    <figure>
+                        <h4>Güzellik Salonu</h4>
+                        <figcaption>Kuaför salonları ve spa'lar</figcaption>
+                    </figure>
+                    <!--anchor-->
+                    <a href="facility.html">Anchor link</a>
+                </li>
+
+                <!-- === stretcher item more === -->
+
+                <li class="stretcher-item more">
+                    <div class="more-icon">
+                        <span data-title-show="Show more" data-title-hide="+"></span>
+                    </div>
+                    <a href="facility.html">Anchor link</a>
+                </li>
+
+            </ul>
+        </section>
+
+        <!-- ========================  Cards ======================== -->
+
+        <section class="cards">
+
+            <!-- === cards header === -->
+
+            <div class="section-header">
+                <div class="container">
+                    <h2 class="title">Yakında <a href="#" class="btn btn-sm btn-clean-dark">Hepsini gör</a></h2>
+                    <p>Sanat, moda ve tasarıma ilişkin Ionic sitelere dair bir seçki.</p>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row">
+
+                    <!-- === item === -->
+
+                    <div class="col-xs-12 col-md-8">
+                        <figure>
+                            <figcaption style="background-image:url(/static/src/images/museums.jpg)">
+                                <img src="/static/src/images/museums.jpg" alt="" />
+                            </figcaption>
+                            <a href="#" class="btn btn-clean" onclick="">Müzeler</a>
+                        </figure>
+                    </div>
+
+                    <!-- === item === -->
+
+                    <div class="col-xs-6 col-md-4">
+                        <figure>
+                            <figcaption style="background-image:url(/static/src/images/nightlife.jpg)">
+                                <img src="/static/src/images/nightlife.jpg" alt="" />
+                            </figcaption>
+                            <a href="#" class="btn btn-clean">Gece Hayatı</a>
+                        </figure>
+                    </div>
+
+                    <!-- === item === -->
+
+                    <div class="col-xs-6 col-md-4">
+                        <figure>
+                            <figcaption style="background-image:url(/static/src/images/fooddrink.jpg)">
+                                <img src="/static/src/images/fooddrink.jpg" alt="" />
+                            </figcaption>
+                            <a href="#" class="btn btn-clean">Yiyecek içecek</a>
+                        </figure>
+                    </div>
+
+                    <!-- === item === -->
+
+                    <div class="col-xs-6 col-md-4">
+                        <figure>
+                            <figcaption style="background-image:url(/static/src/images/shopping.jpg)">
+                                <img src="/static/src/images/shopping.jpg" alt="" />
+                            </figcaption>
+                            <a href="#" class="btn btn-clean">Alışveriş</a>
+                        </figure>
+                    </div>
+
+                    <!-- === item === -->
+
+                    <div class="col-xs-6 col-md-4">
+                        <figure>
+                            <figcaption style="background-image:url(/static/src/images/city.jpg)">
+                                <img src="/static/src/images/city.jpg" alt="" />
+                            </figcaption>
+                            <a href="#" class="btn btn-clean">Şehir</a>
+                        </figure>
+                    </div>
+
+                </div> <!--/row-->
+
+            </div> <!--/container-->
+        </section>
+
+        <!-- ========================  Subscribe ======================== -->
+
+        <section class="subscribe">
+            <div class="container">
+                <div class="box">
+                    <h2 class="title">Abone Ol</h2>
+                    <div class="text">
+                        <p>& Ücretsiz Premium Hediyeler Alın</p>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" value="" placeholder="Abone Ol" class="form-control" />
+                        <button class="btn btn-sm btn-main">Git</button>
+                    </div>
+                </div>
+            </div>
+        </section> 
+    </div> <!--/wrapper-->
+
+    <!--JS files-->
+    <script src="/static/src/js/jquery.min.js"></script>
+    <script src="/static/src/js/jquery-ui.js"></script>
+    <script src="/static/src/js/jquery.bootstrap.js"></script>
+    <script src="/static/src/js/jquery.magnific-popup.js"></script>
+    <script src="/static/src/js/jquery.owl.carousel.js"></script>
+    <script src="/static/src/js/main.js"></script>
+</body>
+
+</html>
+{% endblock %}

@@ -1,0 +1,169 @@
+﻿{% extends 'base.html' %}
+{% load static %}
+{% block title %}Rezervasyon - Otel, Tatil Köyü ve Konaklama{% endblock %}
+
+{% block content %}
+
+        <!-- ========================  Checkout ======================== -->
+
+        <section class="page">
+
+            <!-- ===  Page header === -->
+
+            <div class="page-header" style="background-image:url(/static/src/images/header-1.jpg)">
+                <div class="container">
+                    <h2 class="title">Rezervasyon yap</h2>
+                    <p>Rezervasyon adım 2'ye devam et</p>
+                </div>
+            </div>
+
+            <!-- ===  Checkout steps === -->
+
+            <div class="step-wrapper">
+                <div class="container">
+                    <div class="stepper">
+                        <ul class="row">
+                            <li class="col-md-4 active">
+                                <a href="reservation-1.html"><span data-text="Room & rates"></span></a>
+                            </li>
+                            <li class="col-md-4">
+                                <a href="reservation-2.html"><span data-text="Reservation"></span></a>
+                            </li>
+                            <li class="col-md-4">
+                                <a href="reservation-3.html"><span data-text="Checkout"></span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===  Checkout === -->
+
+            <div class="checkout">
+
+                <div class="container">
+
+                    <div class="clearfix">
+
+                        <!-- ========================  Cart wrapper ======================== -->
+
+                        <div class="cart-wrapper">
+
+                            <!--cart header -->
+
+                            <div class="cart-block cart-block-header clearfix">
+                                <div>
+                                    <span>Oda tipi</span>
+                                </div>
+                                <div class="text-right">
+                                    <span>Fiyat</span>
+                                </div>
+                            </div>
+
+                            <!--cart items-->
+
+                            <div class="clearfix">
+                                <div class="cart-block cart-block-item clearfix">
+                                    <div class="image">
+                                        <a href="{% url 'room-overview' room_slug=room.slug %}">
+                                            <img src="{{ room.image_home.url }}" alt="{{ room.name }}" />
+                                        </a>
+                                        </div>
+                                        <div class="title">
+                                            <div class="h2"><a href="{% url 'room-overview' room_slug=room.slug %}">{{ room.description }}</a></div>
+                                        </div>
+                                        <p>
+                                            <strong>Giriş</strong> <br /> <a href="#">({{ checkin_date|date:"F d, Y" }})</a>
+                                        </p>
+                                        <p>
+                                            <strong>Çıkış</strong> <br /> <a href="#">({{ checkout_date|date:"F d, Y" }})</a>
+                                        </p>
+                                        
+                                        
+                                        <!-- <p>
+                                            <strong>Guests</strong> <br /> 2 Adults, 1 Child
+                                        </p>
+                                        <p>
+                                            <strong>Nights</strong> <br /> 7
+                                        </p> -->
+                                    </div>
+                                   
+                                    <!--delete-this-item-->
+                                </div>
+                            </div>
+                            
+                            <!--cart prices -->
+                        
+                            <!--cart final price -->
+                            <div class="clearfix">
+                                <div class="cart-block cart-block-footer cart-block-footer-price clearfix">
+                                    <div>
+                                        <span class="checkbox">
+                                            <input type="checkbox" id="couponCodeID">
+                                            <input type="text" class="form-control form-coupon" value="" placeholder="Enter your coupon code" />
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <div class="h2 title">₺{{ total_price }}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            
+                            <!-- ========================  Cart navigation ======================== -->
+                            
+                            <div class="clearfix">
+                                <div class="cart-block cart-block-footer cart-block-footer-price clearfix">
+                                    <div>
+                                        <a href="#" class="btn btn-clean-dark">Change</a>
+                                    </div>
+                                    <div>
+                                        {% if user.is_authenticated %}
+                                            <a href="{% url 'reservation-step-2' room_slug=room.slug %}" class="btn btn-main">Rezervasyon Yap <span class="icon icon-chevron-right"></span></a>
+                                        {% else %}
+                                            <p>Rezervasyon yapabilmek için önce giriş yapmalısınız.</p>
+                                            <a href="{% url 'login' %}?next={% url 'reservation-step-2' room_slug=room.slug %}" class="btn btn-main">Giriş yap <span class="icon icon-chevron-right"></span></a>
+                                            <span>veya</span>
+                                            <a href="{% url 'register' %}?next={% url 'reservation-step-2' room_slug=room.slug %}" class="btn btn-main">Kayıt Ol <span class="icon icon-chevron-right"></span></a>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!--/container-->
+            </div> <!--/checkout-->
+
+        </section>
+
+
+
+        <!-- ========================  Subscribe ======================== -->
+
+        <section class="subscribe">
+            <div class="container">
+                <div class="box">
+                    <h2 class="title">Subscribe</h2>
+                    <div class="text">
+                        <p>& receive free premium gifts</p>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" value="" placeholder="Subscribe" class="form-control" />
+                        <button class="btn btn-sm btn-main">Go</button>
+                    </div>
+                </div>
+            </div>
+        </section> 
+    </div> <!--/wrapper-->
+
+    <!--JS files-->
+    <script src="/static/src/js/jquery.min.js"></script>
+    <script src="/static/src/js/jquery-ui.js"></script>
+    <script src="/static/src/js/jquery.bootstrap.js"></script>
+    <script src="/static/src/js/jquery.magnific-popup.js"></script>
+    <script src="/static/src/js/jquery.owl.carousel.js"></script>
+    <script src="/static/src/js/main.js"></script>
+</body>
+
+</html>
+{% endblock %}

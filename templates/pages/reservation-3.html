@@ -1,0 +1,309 @@
+﻿{% extends 'base.html' %}
+{% load static %}
+{% block title %}Rezervasyon - Otel, Tatil Köyü ve Konaklama{% endblock %}
+
+{% block content %}
+
+        <!-- ========================  Checkout ======================== -->
+
+        <section class="page">
+
+            <!-- ===  Page header === -->
+
+            <div class="page-header" style="background-image:url(/static/src/images/header-1.jpg)">
+
+                <div class="container">
+                    <h2 class="title">Reservation completed</h2>
+                    <p>Thank you!</p>
+                </div>
+
+            </div>
+
+            <!-- ===  Step wrapper === -->
+
+            <div class="step-wrapper">
+                <div class="container">
+
+                    <div class="stepper">
+                        <ul class="row">
+                            <li class="col-md-4 active">
+                                <a href="reservation-1.html"><span data-text="Room & rates"></span></a>
+                            </li>
+                            <li class="col-md-4 active">
+                                <a href="reservation-2.html"><span data-text="Reservation"></span></a>
+                            </li>
+                            <li class="col-md-4 active">
+                                <a href="reservation-3.html"><span data-text="Checkout"></span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===  Checkout === -->
+
+            <div class="checkout">
+
+                <div class="container">
+
+                    <div class="clearfix">
+
+                        <!-- ========================  Note block ======================== -->
+
+                        <div class="cart-wrapper">
+
+                            <div class="note-block">
+
+                                <div class="row">
+                                    <!-- === left content === -->
+
+                                    <div class="col-md-6">
+
+                                        <div class="white-block">
+
+                                            <div class="h4">Guest information</div>
+
+                                            <hr />
+
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <strong>İsim</strong><br />
+                                                        <span>{{ request.user.first_name }}</span>
+                                                    </div>
+                                                </div>
+                                            
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <strong>Soyisim</strong><br />
+                                                        <span>{{ request.user.last_name }}</span>
+                                                    </div>
+                                                </div>
+                                            
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <strong>Email</strong><br />
+                                                        <span>{{ request.user.email }}</span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <strong>Telefon</strong><br />
+                                                        <span>{{ request.user.customer.telefon }}</span>
+                                                    </div>
+                                                </div>
+                                            
+                                                <!-- Diğer bilgileri ekleyebilirsiniz -->
+                                            </div>
+
+                                        </div> <!--/col-md-6-->
+
+                                    </div>
+
+                                    <!-- === right content === -->
+
+                                    <div class="col-md-6">
+                                        <div class="white-block">
+
+                                            <div class="h4">Reservation details</div>
+
+                                            <hr />
+
+                                            <div class="row">
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <strong>Order no.</strong> <br />
+                                                        <span>52522-63259226</span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <strong>Transaction ID</strong> <br />
+                                                        <span>2265996</span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <strong>Giriş</strong> <br />
+                                                        <span>({{ checkin_date|date:"F d, Y" }})</span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <strong>Çıkış</strong> <br />
+                                                        <span>({{ checkout_date|date:"F d, Y" }})</span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="h4">Payment details</div>
+
+                                            <hr />
+
+                                            <div class="row">
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <strong>Transaction time</strong> <br />
+                                                        <span id="transactionTime"></span>
+                                                    </div>
+                                                </div>
+                                                
+                                                <script>
+                                                    var currentDate = new Date();
+                                                    var formattedDate = currentDate.toLocaleString(); // Tarih ve saat bilgisini al
+                                                
+                                                    document.getElementById("transactionTime").innerHTML = formattedDate; // HTML içine yerleştir
+                                                </script>
+                                                
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <strong>Fiyat</strong><br />
+                                                        <span>₺ {{ room.price }} x {{ total_price }} Gün = ₺ {{ total_price }}</span>
+                                                    </div>
+                                                </div>
+
+
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <strong>Cart details</strong><br />
+                                                        <span>**** **** **** 5446</span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <strong>Oda Tipi</strong><br />
+                                                        <span>{{ room.name }}</span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- ========================  Cart wrapper ======================== -->
+
+                        <div class="cart-wrapper">
+
+                            <!--cart header -->
+
+                            <div class="cart-block cart-block-header clearfix">
+                                <div>
+                                    <span>Room type</span>
+                                </div>
+                                <div class="text-right">
+                                    <span>Price</span>
+                                </div>
+                            </div>
+
+                            <!--cart items-->
+
+                            <div class="clearfix">
+                                <div class="cart-block cart-block-item clearfix">
+                                    <div class="image">
+                                        <a href="{% url 'room-overview' room_slug=room.slug %}">
+                                            <img src="{{ room.image_home.url }}" alt="{{ room.name }}" />
+                                        </a>
+                                        </div>
+                                        <div class="title">
+                                            <div class="h2"><a href="{% url 'room-overview' room_slug=room.slug %}">{{ room.description }}</a></div>
+                                        </div>
+                                        <p>
+                                            <strong>Giriş</strong> <br /> <a href="#">({{ checkin_date|date:"F d, Y" }})</a>
+                                        </p>
+                                        <p>
+                                            <strong>Çıkış</strong> <br /> <a href="#">({{ checkout_date|date:"F d, Y" }})</a>
+                                        </p>
+                                    </div>
+                                    <div class="price">
+                                        <span class="final h3"></span>
+                                    </div>
+                                    <!--delete-this-item-->
+                                </div>
+                            </div>
+                            
+                            <div class="clearfix">
+                                <div class="cart-block cart-block-footer cart-block-footer-price clearfix">
+                                    <div>
+                                        <span class="checkbox">
+                                            <input type="checkbox" id="couponCodeID">
+                                            <input type="text" class="form-control form-coupon" value="" placeholder="Enter your coupon code" />
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <div class="h2 title">₺{{ total_price }}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Cart navigation and form -->
+                            <form method="post" action="{% url 'complete_reservation' room_slug=room.slug %}">
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                                <button type="submit" class="btn btn-main">Rezervasyonu Tamamla</button>
+                            </form>
+                            
+                            <div class="clearfix">
+                                <div class="cart-block cart-block-footer cart-block-footer-price clearfix">
+                                    <div>
+                                        <a href="reservation-1.html" class="btn btn-clean-dark">Back</a>
+                                    </div>
+                                    <div>
+                                        <a onclick="window.print()" class="btn btn-main">Print <span class="icon icon-printer"></span></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div> <!--/container-->
+            </div> <!--/checkout-->
+
+        </section>
+
+
+
+        <!-- ========================  Subscribe ======================== -->
+
+        <section class="subscribe">
+            <div class="container">
+                <div class="box">
+                    <h2 class="title">Subscribe</h2>
+                    <div class="text">
+                        <p>& receive free premium gifts</p>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" value="" placeholder="Subscribe" class="form-control" />
+                        <button class="btn btn-sm btn-main">Go</button>
+                    </div>
+                </div>
+            </div>
+        </section> 
+    </div> <!--/wrapper-->
+
+    <!--JS files-->
+    <script src="/static/src/js/jquery.min.js"></script>
+    <script src="/static/src/js/jquery-ui.js"></script>
+    <script src="/static/src/js/jquery.bootstrap.js"></script>
+    <script src="/static/src/js/jquery.magnific-popup.js"></script>
+    <script src="/static/src/js/jquery.owl.carousel.js"></script>
+    <script src="/static/src/js/main.js"></script>
+</body>
+
+</html>
+{% endblock %}
